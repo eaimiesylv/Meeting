@@ -1,0 +1,30 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+aside,main{
+	height:100vh;
+}
+a{
+	text-decoration:none;
+}
+i{color: Mediumslateblue}
+.content{
+  height:100vh !important;
+  background:white
+}
+
+@media (max-width: 700px) {
+    #sidemenu{
+      height:200px
+    }
+    #menuToggle{
+        display:block;
+    }
+  }
