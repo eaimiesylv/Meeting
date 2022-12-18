@@ -80,7 +80,7 @@
 						 <li class="list-group-item"><i class="fa-solid fa-meetup"></i> <a href="/meeting">Meeting</a></li>
 						<li class="list-group-item"><i class="fa-solid fa-poll"></i> <a href="/poll">Poll</a></li>
 						<li class="list-group-item"><i class="fa-sharp fa-solid fa-reply"></i> <a href="/rsvp">Rsvp</a></li>
-						<li class="list-group-item"><i class="fa-sharp fa-solid fa-sign-out"></i> <a href="/home">Log Out</a></li>
+						<!--<li class="list-group-item"><i class="fa-sharp fa-solid fa-sign-out"></i> <a href="/log-out">Log Out</a></li>-->
 					
 					</ul>
 			 </aside>

@@ -8,6 +8,10 @@ use Auth;
 use Session;
 class MeetingAttendeeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
       public function index()
     {
         return Meeting_attendee::paginate(20);
@@ -24,14 +28,7 @@ class MeetingAttendeeController extends Controller
        
         $str=(explode("#",$request->accesssibility));
        
-    /*
-        $request->validate([
-
-            'meeting_id'=>'required|integer',
-            'attendee_id'=>'required|integer',
-            'creator_id'=>'required|integer',
-            'rsvp'=>'required|string',
-          ]);*/
+   
            try{
 			    $result=Meeting_attendee::firstorcreate([
                     'meeting_id'=>$str[0],
@@ -63,7 +60,7 @@ class MeetingAttendeeController extends Controller
    
     public function update(Request $request, $id)
     {
-        
+        //return 'ok';
         $rsvp=explode("#",$request->rsvp);
         $id=$rsvp[0];
         $val=$rsvp[1];
@@ -84,8 +81,11 @@ class MeetingAttendeeController extends Controller
         }
     }
     public function rsvp(){
-        $meeting=Meeting_attendee::where('attendee_id',Auth::user()->id)->with('meeting','meeting.user')->get();
-        //return $meeting;
+       
+        $meeting=Meeting_attendee::where('attendee_id',Auth::user()->id)
+        ->with('meeting','meeting.user')
+        ->get();
+       // return $meeting;
         return view('meeting.rsvp',array('meeting'=>$meeting));
     }
 }

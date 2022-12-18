@@ -54,7 +54,28 @@ class MeetingPollController extends Controller
     public function show($id)
     {
         $meeting_poll=Meeting_poll::select('id','poll_question')->with('poll_questions')->findorFail($id);
-        //return $meeting_poll;
+        $query="select count(option_id) as count,option_id as option 
+        FROM meeting_poll_counts where poll_question_id = $id group by option_id ";
+         $res=\DB::select($query);
+        if(count($res)>0){
+         foreach($res as $k=>$value){
+           
+             $map[]=["s".$value->option=>$value->count];
+             
+         }
+       
+        foreach($meeting_poll['poll_questions'] as $k=>$value){
+             
+             $p_id=$value['id'];
+             $val="s".$p_id;
+             if(isset($map[$k][$val])){
+                  $optin_c=$map[$k][$val];
+                  $meeting_poll['poll_questions'][$k]['count']=$optin_c;
+             }
+           
+        }
+    }
+      // return $meeting_poll;
         return view('poll',array('meeting_poll'=>$meeting_poll));
     }
 

@@ -26,7 +26,7 @@
 					
 				</div>
 				
-				<div class="col-md-1 "style="font-size:1.2em;margin:1em"></div>
+				<div class="col-md-1 "style="font-size:1.2em;margin:1em">{{$key->count}}</div>
 			 </div>
 			@endforeach
        </div>

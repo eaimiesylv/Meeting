@@ -15,4 +15,7 @@ class Meeting_poll extends Model
     public function poll_questions(){
         return $this->hasMany(Poll_question::class,'meeting_poll_id','id');
     }
+    public function poll_count(){
+        return $this->hasMany(Meeting_poll_count::class,'poll_question_id','id');
+    }
 }

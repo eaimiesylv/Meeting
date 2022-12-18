@@ -32,7 +32,7 @@ class MeetingPollCountController extends Controller
            
            ]);*/
            try{
-			    $result=Meeting_poll_count::firstorcreate([
+			    $result=Meeting_poll_count::Create([
                     'poll_question_id'=>$val[1],
                     'option_id'=>$val[2],  
                 ]);

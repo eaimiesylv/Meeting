@@ -37,7 +37,7 @@
 							<td>{{ ++$i }}</td>
 							<td>{{ $key->meeting->name}}</td>
 							<td>{{ $key->poll_question}}</td>
-							<td>{{ $key->url}}</td>
+							<td><a  href="{{ $key->url}}">{{ $key->url}}</a></td>
 							<td>
 								
 								

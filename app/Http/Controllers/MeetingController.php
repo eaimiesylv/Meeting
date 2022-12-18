@@ -12,6 +12,10 @@ use Session;
 
 class MeetingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
       public function index()
     {
         $user_id=Auth::user()->id;
@@ -41,7 +45,7 @@ class MeetingController extends Controller
             'date'=>'required|date',
             'time'=>'required|string',
             'accesssibility'=>'required|string',
-            'url'=>'required|string',
+            'url'=>'required|string|unique:meetings',
           
            
            ]);

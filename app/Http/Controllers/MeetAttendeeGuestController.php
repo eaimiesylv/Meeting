@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Meet_attendee_guest;
 use Illuminate\Http\Request;
+use App\Models\Meeting;
+use App\Models\Meeting_attendee;
 use Session;
 
 class MeetAttendeeGuestController extends Controller
@@ -23,9 +25,10 @@ class MeetAttendeeGuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($meeting)
     {
-        //
+       
+        return view('meeting.guest_create',array('meeting'=>$meeting)); 
     }
 
     /**
@@ -58,9 +61,24 @@ class MeetAttendeeGuestController extends Controller
      * @param  \App\Models\Meet_attendee_guest  $meet_attendee_guest
      * @return \Illuminate\Http\Response
      */
-    public function show(Meet_attendee_guest $meet_attendee_guest)
+    public function show(Request $request)
     {
-        //
+        $id=Meeting::select('id')->where('url',$request->url)->get();
+       
+        $names=Meet_attendee_guest::where('meeting_id',$id[0]->id)->where('attendee_id',"$request->name")->get();
+        if(count($names)>0){
+             $meeting=Meet_attendee_guest::where('attendee_id',$names[0]->attendee_id)
+            ->with('meeting','meeting.user')
+            ->get();
+            return view('meeting.guest_rsvp',array('meeting'=>$meeting));
+         }
+        else{
+            Session::flash('message', "This guest user does not exit");
+            return redirect()->route('meeting');
+        }
+                //return \DB::getQueryLog();
+        return $names;
+        return $request->all();
     }
 
     /**
@@ -83,7 +101,14 @@ class MeetAttendeeGuestController extends Controller
      */
     public function update(Request $request, Meet_attendee_guest $meet_attendee_guest)
     {
-        //
+        $rsvp=explode("#",$request->rsvp);
+        $id=$rsvp[0];
+        $val=$rsvp[1];
+        $attendee=$rsvp[2];
+        $product=Meet_attendee_guest::where('attendee_id',$attendee)->first();
+        $product->update(['rsvp'=>$val]);
+        Session::flash('message', "Rsvp invitation has been responded to");
+        return redirect()->route('meeting');
     }
 
     /**

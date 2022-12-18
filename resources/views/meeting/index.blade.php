@@ -42,7 +42,16 @@
 							<td>{{ $key->accesssibility}}</td>
 							<td>{{ $key->date}}</td>
 							<td>{{ $key->time}}</td>
-							<td>{{ $key->url}}</td>
+							<td>
+							@if($key->accesssibility == "public")
+								<!--<a href="http://127.0.0.1:8000/meet_url/{{ $key->url}}/show">
+							http://127.0.0.1:8000/meet_url/{{ $key->url}}/show
+							</a>-->
+							<a href="http://127.0.0.1:8000/meet_url/{{ $key->url}}/show">
+							click to open
+							</a>
+							@endif
+						</td>
 							<td><a href="meeting/{{$key->id}}/attendee"><i class="fa-solid fa-eye"></i></a></td>
 							<td><a href="meeting/{{$key->id}}/show"><i class="fa-solid fa-edit"></i></a></td>
 							<td>

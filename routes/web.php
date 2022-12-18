@@ -21,8 +21,10 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\MeetingController::class, 'index'])->name('home');
-Route::get('/meeting', [App\Http\Controllers\MeetingController::class, 'index']);
+Route::get('/meeting', [App\Http\Controllers\MeetingController::class, 'index'])->name('meeting');
 Route::get('/rsvp', [App\Http\Controllers\MeetingAttendeeController::class, 'rsvp'])->name('rsvp');
+Route::get('/meet_url/{id}/show', [App\Http\Controllers\MeetAttendeeGuestController::class, 'create'])->name('guest_attendee');
+Route::post('/meet_url/show', [App\Http\Controllers\MeetAttendeeGuestController::class, 'show']);
 Route::get('/meeting/{id}/show', [App\Http\Controllers\MeetingController::class, 'show']);
 Route::get('/meeting/create', [App\Http\Controllers\MeetingController::class, 'create']);
 Route::post('/meeting/store', [App\Http\Controllers\MeetingController::class, 'store']);
@@ -32,7 +34,7 @@ Route::post('/attendee/store', [App\Http\Controllers\MeetingAttendeeController::
 Route::get('/meeting/{id}/attendee', [App\Http\Controllers\MeetingController::class, 'attendee']);
 Route::put('/attendee/{id}', [App\Http\Controllers\MeetingAttendeeController::class, 'update']);
 Route::post('/guest_attendee/store', [App\Http\Controllers\MeetAttendeeGuestController::class, 'store']);
-
+Route::put('meet_url/guest_attendee/store', [App\Http\Controllers\MeetAttendeeGuestController::class, 'update']);
 Route::get('/poll', [App\Http\Controllers\MeetingPollController::class, 'index'])->name('poll');
 
 Route::get('/poll/create', [App\Http\Controllers\MeetingPollController::class, 'create']);

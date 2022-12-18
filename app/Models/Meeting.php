@@ -9,6 +9,7 @@ class Meeting extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    protected $hidden=['created_at','updated_at'];
     public function attendee(){
         return $this->hasMany(Meeting_attendee::class,'meeting_id','id');
     }
