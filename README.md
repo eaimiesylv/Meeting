@@ -67,4 +67,4 @@ Rename .env.example to .env Create a database using the name specific in the .en
 
 6.invite a user by selecting their name from the drop down option. For a user name to appear on the invitee list, the user must have register
 
-7. click on poll to create a meeting poll
+7.click on poll to create a meeting poll
