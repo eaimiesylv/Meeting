@@ -1,3 +1,6 @@
+![reg_page](https://user-images.githubusercontent.com/50324524/217557943-0b1744b3-f114-49a9-bd56-845cff18c574.PNG)
+
+
 **Project Description**
 
 This is a simple project that allows user to create meeting. Register users receives the meeting invitation from their dashboard while unregister users(guests) gets the meeting link to a sharable url. Users can also conduct poll at the end of the meeting as well as decline or accepts a meeting invite
