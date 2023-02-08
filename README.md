@@ -1,4 +1,15 @@
+
+**Registration Page**
 ![reg_page](https://user-images.githubusercontent.com/50324524/217557943-0b1744b3-f114-49a9-bd56-845cff18c574.PNG)
+**Create A Meeting**
+![create_meet](https://user-images.githubusercontent.com/50324524/217558417-4887cc38-ec4e-4b19-8de2-6daf8b94dc52.PNG)
+**View Meeting**
+![view_meet](https://user-images.githubusercontent.com/50324524/217558676-c160a67a-3842-4e73-9a7a-1debc0c2b9b7.PNG)
+**Create A Meeting Poll**
+![create_poll](https://user-images.githubusercontent.com/50324524/217559049-c36cdbb7-0314-49ed-beef-afb856c84eeb.PNG)
+**View Poll Count**
+![poll_count](https://user-images.githubusercontent.com/50324524/217559149-b6e0a113-e23d-46cc-8381-f20b08d4a364.PNG)
+
 
 
 **Project Description**
